@@ -3,12 +3,10 @@
 
 
 
-**Sample:**
+**Example:**
 
 cli_xls2json.go
 ```golang
-package main
-
 import (
 	"flag"
 	"fmt"
@@ -22,7 +20,7 @@ import (
 
 func main() {
 	var filetype string
-	path := flag.String("file", "test.xlsx", "xlsx file")
+	path := flag.String("file", "test.xlsx", "ods, xlsx, xls or csv file")
 	mode := flag.String("mode", "map", "map or array")
 	delimiter := flag.String("delimiter", ",", "csv delimiter")
 	flag.Parse()
@@ -45,7 +43,8 @@ func main() {
 		log.Fatalf(`unable to open file, error: %s`, err)
 	}
 	defer file.Close()
-	//r := bufio.NewReader(file)
+
+    
 
 	resReader, err := xls2json.DataToJSON(file, filetype, *mode, []rune(*delimiter)[0])
 	if err != nil {
