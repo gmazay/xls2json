@@ -13,7 +13,7 @@ import (
 
 func main() {
 	var filetype string
-	path := flag.String("file", "testa.xlsx", "xlsx file")
+	path := flag.String("file", "test.xlsx", "xlsx file")
 	mode := flag.String("mode", "map", "map or array")
 	delimiter := flag.String("delimiter", ",", "csv delimiter")
 	flag.Parse()
